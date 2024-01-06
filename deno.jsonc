@@ -1,0 +1,34 @@
+{
+  "tasks": {
+    "dev": "deno run --allow-read --allow-net --allow-env --allow-sys --watch --allow-write main.js",
+    "debug": "deno run --allow-read --allow-net --allow-env --allow-sys --allow-write --inspect-brk main.js",
+    "run": "deno run --allow-read --allow-net --allow-env --allow-sys --allow-write main.js",
+    "compile": "deno compile --allow-sys --allow-read --allow-net --allow-write -o dist/jsfrontend main.js",
+  },
+  "imports": {
+    "@/": "./",
+    "oak": "https://deno.land/x/oak@v12.6.1/mod.ts",
+    "std/": "https://deno.land/std@0.210.0/",
+    "eta": "https://deno.land/x/eta@v3.2.0/src/index.ts",
+    "jose": "https://deno.land/x/jose@v5.2.0/index.ts",
+  },
+  "lint": {
+    "include": ["."],
+    "exclude": [],
+    "rules": {
+      "tags": ["recommended"],
+      "include": ["ban-untagged-todo"],
+      "exclude": ["no-unused-vars"]
+    }
+  },
+  "fmt": {
+    "useTabs": false,
+    "lineWidth": 80,
+    "indentWidth": 2,
+    "semiColons": true,
+    "singleQuote": true,
+    "proseWrap": "preserve",
+    "include": ["."],
+    "exclude": []
+  }
+}
