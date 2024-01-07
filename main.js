@@ -10,19 +10,6 @@ import 'std/dotenv/load.ts';
 // await load();
 const app = new Application();
 
-const ROOT_DIR = 'public';
-const ROOT_DIR_PATH = '/public';
-app.use(async (ctx, next) => {
-  if (!ctx.request.url.pathname.startsWith(ROOT_DIR_PATH)) {
-    next();
-    return;
-  }
-  const filePath = ctx.request.url.pathname.replace(ROOT_DIR_PATH, '');
-  await send(ctx, filePath, {
-    root: ROOT_DIR,
-  });
-});
-
 app.use(router.routes());
 registerMiddlewares(app);
 

@@ -14,7 +14,7 @@ log.setup({
 
 export const logger = log.getLogger('api');
 
-export async function loggingMiddleware(ctx, next) {
+export async function logHandler(ctx, next) {
   try {
     await next();
     logger.info(
