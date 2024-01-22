@@ -1,3 +1,7 @@
 <% layout("../../base/layout.ejs") %>
 
 <section>post list</section>
+<% console.dir(it.posts) %>
+<% it.posts.forEach(function(post){ %>
+  <%~ include("./card.ejs", { post }) %>
+<% }) %>

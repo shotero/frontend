@@ -18,9 +18,7 @@ export async function logHandler(ctx, next) {
   try {
     await next();
     logger.info(
-      `${ctx.request.method} - ${ctx.request.url}: ${
-        ctx.response.status
-      } - ${String(ctx.response.body)}`,
+      `${ctx.request.method} - ${ctx.request.url}: ${ctx.response.status}`,
     );
   } catch (error) {
     throw error;
